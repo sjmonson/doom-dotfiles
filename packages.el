@@ -8,3 +8,6 @@
 ;;(package! pyenv-mode)
 (package! pyenv-mode-auto)
 (package! tide)
+(package! polymode)
+(package! poly-markdown)
+(package! poly-R)
