@@ -40,7 +40,7 @@
             "bibtex %b"
             "pdflatex -interaction nonstopmode -output-directory %o %f"
             "pdflatex -interaction nonstopmode -output-directory %o %f"))
-    (setq org-latex-with-hyperref nil) ;; stop org adding hypersetup{author..} to latex export
+    (setq org-latex-with-hyperref-template nil) ;; stop org adding hypersetup{author..} to latex export
     ;; (setq org-latex-prefer-user-labels t)
 
     ;; deleted unwanted file extensions after latexMK
