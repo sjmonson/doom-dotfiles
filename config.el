@@ -1,6 +1,10 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here
+(add-hook! 'sql-interactive-mode-hook
+           (lambda ()
+             (toggle-truncate-lines t)))
+
 (after! tide
   (defun setup-tide-mode ()
     (interactive)
@@ -21,6 +25,22 @@
 (add-hook! 'before-save-hook 'tide-format-before-save)
 
 (add-hook! 'typescript-mode-hook #'setup-tide-mode)
+
+;; Stops evil-snipe from overiding keybinds
+(after! evil-snipe (evil-snipe-override-mode -1))
+
+(after! evil-maps
+  (define-key evil-motion-state-map "j" 'evil-next-line)
+  (define-key evil-motion-state-map "k" 'evil-previous-line)
+  (define-key evil-motion-state-map "l" 'evil-backward-char)
+  (define-key evil-motion-state-map ";" 'evil-forward-char))
+
+(after! sql
+  (setq sql-mysql-login-params
+      '((user :default "km_monsonsamuel")
+        (database :default "km_monsonsamuel")
+        (server :default "cs100.seattleu.edu")
+        (password :default ""))))
 
 (after! org
   (use-package! ox-extra
