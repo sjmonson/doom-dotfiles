@@ -1,9 +1,14 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here
-(add-hook! 'sql-interactive-mode-hook
-           (lambda ()
-             (toggle-truncate-lines t)))
+;;(add-hook! 'sql-interactive-mode-hook
+;;           (lambda ()
+;;             (toggle-truncate-lines t)))
+(setq tab-width 2)
+
+(after! lsp
+  (setq lsp-ui-sideline-show-code-actions nil)
+)
 
 (after! tide
   (defun setup-tide-mode ()
@@ -35,12 +40,12 @@
   (define-key evil-motion-state-map "l" 'evil-backward-char)
   (define-key evil-motion-state-map ";" 'evil-forward-char))
 
-(after! sql
-  (setq sql-mysql-login-params
-      '((user :default "km_monsonsamuel")
-        (database :default "km_monsonsamuel")
-        (server :default "cs100.seattleu.edu")
-        (password :default ""))))
+;;(after! sql
+;;  (setq sql-mysql-login-params
+;;      '((user :default "km_monsonsamuel")
+;;        (database :default "km_monsonsamuel")
+;;        (server :default "cs100.seattleu.edu")
+;;        (password :default ""))))
 
 (after! org
   (use-package! ox-extra
@@ -55,11 +60,8 @@
     ;; code here will run immediately
     :config
     ;; code here will run after the package is loaded
-    (setq org-latex-pdf-process
-          '("pdflatex -interaction nonstopmode -output-directory %o %f"
-            "bibtex %b"
-            "pdflatex -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -interaction nonstopmode -output-directory %o %f"))
+    ;;(setq org-latex-pdf-process '("xelatex -interaction nonstopmode -output-directory %o %f"))
+    (setq org-latex-pdf-process '("PDFLATEX=\"xelatex\" texi2dvi --pdf %f"))
     (setq org-latex-with-hyperref-template nil) ;; stop org adding hypersetup{author..} to latex export
     ;; (setq org-latex-prefer-user-labels t)
 
