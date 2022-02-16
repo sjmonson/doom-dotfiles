@@ -1,5 +1,10 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+;; Removes evil-snipe repeat keys such as ;
+(setq evil-snipe-override-evil-repeat-keys nil)
+;; Stops evil-snipe from overiding keybinds
+;(after! evil-snipe (evil-snipe-override-mode -1))
+
 ;; Place your private configuration here
 ;;(add-hook! 'sql-interactive-mode-hook
 ;;           (lambda ()
@@ -30,9 +35,6 @@
 (add-hook! 'before-save-hook 'tide-format-before-save)
 
 (add-hook! 'typescript-mode-hook #'setup-tide-mode)
-
-;; Stops evil-snipe from overiding keybinds
-(after! evil-snipe (evil-snipe-override-mode -1))
 
 (after! evil-maps
   (define-key evil-motion-state-map "j" 'evil-next-line)
