@@ -9,5 +9,6 @@
 (package! pyenv-mode-auto)
 (package! tide)
 (package! polymode)
-(package! poly-markdown)
-(package! poly-R)
+;(package! poly-markdown)
+;(package! poly-R)
+(package! dbus)

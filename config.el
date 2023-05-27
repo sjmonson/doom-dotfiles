@@ -36,6 +36,41 @@
 
 (add-hook! 'typescript-mode-hook #'setup-tide-mode)
 
+; Adapted from https://www.reddit.com/r/emacs/comments/o49v2w/automatically_switch_emacs_theme_when_changing/?rdt=59586
+(defun mf/set-theme-from-dbus-value (value)
+  "Set the appropiate theme according to the color-scheme setting value."
+  (message "value is %s" value)
+    (if (equal value '1)
+        (progn (message "Switch to dark theme")
+               (load-theme 'doom-one))
+      (progn (message "Switch to light theme")
+             (load-theme 'doom-one-light))))
+
+(defun mf/color-scheme-changed (path var value)
+  "DBus handler to detect when the color-scheme has changed."
+  (when (and (string-equal path "org.freedesktop.appearance")
+             (string-equal var "color-scheme"))
+    (mf/set-theme-from-dbus-value (car value))
+    ))
+(use-package! dbus
+  :config
+  ;; Register for future changes
+  (dbus-register-signal
+     :session "org.freedesktop.portal.Desktop"
+     "/org/freedesktop/portal/desktop" "org.freedesktop.portal.Settings"
+     "SettingChanged"
+     #'mf/color-scheme-changed)
+
+  ;; Request the current color-scheme
+  (dbus-call-method-asynchronously
+   :session "org.freedesktop.portal.Desktop"
+   "/org/freedesktop/portal/desktop" "org.freedesktop.portal.Settings"
+   "Read"
+   (lambda (value) (mf/set-theme-from-dbus-value (caar value)))
+   "org.freedesktop.appearance"
+   "color-scheme"
+   ))
+
 (after! evil-maps
   (define-key evil-motion-state-map "j" 'evil-next-line)
   (define-key evil-motion-state-map "k" 'evil-previous-line)
@@ -73,3 +108,5 @@
 
     (unless (boundp 'org-latex-classes)
       (setq org-latex-classes nil))))
+
+(after! python (setq pyenv-installation-dir "~/.pyenv"))
