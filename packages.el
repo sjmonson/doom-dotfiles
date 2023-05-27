@@ -12,3 +12,4 @@
 ;(package! poly-markdown)
 ;(package! poly-R)
 (package! dbus)
+(package! lsp-docker)
