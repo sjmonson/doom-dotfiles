@@ -15,27 +15,6 @@
   (setq lsp-ui-sideline-show-code-actions nil)
 )
 
-(after! tide
-  (defun setup-tide-mode ()
-    (interactive)
-    (tide-setup)
-    (flycheck-mode +1)
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))
-    (eldoc-mode +1)
-    (tide-hl-identifier-mode +1)
-    ;; company is an optional dependency. You have to
-    ;; install it separately via package-install
-    ;; `M-x package-install [ret] company`
-    (company-mode +1))
-
-  ;; aligns annotation to the right hand side
-  (setq company-tooltip-align-annotations t)
-)
-;; formats the buffer before saving
-(add-hook! 'before-save-hook 'tide-format-before-save)
-
-(add-hook! 'typescript-mode-hook #'setup-tide-mode)
-
 ; Adapted from https://www.reddit.com/r/emacs/comments/o49v2w/automatically_switch_emacs_theme_when_changing/?rdt=59586
 (defun mf/set-theme-from-dbus-value (value)
   "Set the appropiate theme according to the color-scheme setting value."
@@ -108,5 +87,3 @@
 
     (unless (boundp 'org-latex-classes)
       (setq org-latex-classes nil))))
-
-(after! python (setq pyenv-installation-dir "~/.pyenv"))
