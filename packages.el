@@ -5,6 +5,6 @@
 ;; (package! some-package)
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
-(package! pyenv-mode-auto)
+;; (package! pyenv-mode-auto)
 (package! dbus)
-(package! lsp-docker)
+;;(package! lsp-docker)

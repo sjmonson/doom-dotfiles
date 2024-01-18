@@ -9,6 +9,7 @@
 ;;(add-hook! 'sql-interactive-mode-hook
 ;;           (lambda ()
 ;;             (toggle-truncate-lines t)))
+(setq standard-indent 2)
 (setq tab-width 2)
 
 (after! lsp
