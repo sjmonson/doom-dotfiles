@@ -9,8 +9,6 @@
 ;;(add-hook! 'sql-interactive-mode-hook
 ;;           (lambda ()
 ;;             (toggle-truncate-lines t)))
-(setq standard-indent 2)
-(setq tab-width 2)
 
 (after! lsp
   (setq lsp-ui-sideline-show-code-actions nil)
@@ -94,7 +92,7 @@
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
+              ("C-e" . 'copilot-accept-completion)
+              ("C-e" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
