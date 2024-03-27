@@ -120,9 +120,9 @@
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       ;;(csharp +lsp)     ; unity, .NET, and mono shenanigans
+       (csharp +lsp)     ; unity, .NET, and mono shenanigans
        data              ; config/data formats
-       (dart +flutter +lsp)   ; paint ui and not much else
+       ;;(dart +flutter +lsp)   ; paint ui and not much else
        ;;dhall
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
