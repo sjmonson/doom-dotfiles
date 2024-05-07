@@ -14,6 +14,9 @@
   (setq lsp-ui-sideline-show-code-actions nil)
 )
 
+;; Cache passwords for 2 min
+(setq password-cache-expiry nil)
+
 ; Adapted from https://www.reddit.com/r/emacs/comments/o49v2w/automatically_switch_emacs_theme_when_changing/?rdt=59586
 (defun mf/set-theme-from-dbus-value (value)
   "Set the appropiate theme according to the color-scheme setting value."
