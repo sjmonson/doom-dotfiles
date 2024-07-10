@@ -9,5 +9,5 @@
 (package! dbus)
 ;;(package! lsp-docker)
 
-(package! copilot
-  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
+;(package! copilot
+;  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
