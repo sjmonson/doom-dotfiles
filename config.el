@@ -80,13 +80,15 @@
     ;; code here will run after the package is loaded
     ;;(setq org-latex-pdf-process '("xelatex -interaction nonstopmode -output-directory %o %f"))
     ;;(setq org-latex-pdf-process '("PDFLATEX=\"xelatex\" texi2dvi --shell-escape --pdf %f"))
-    (setq org-latex-pdf-process '("latexmk -xelatex %f"))
+    (setq org-latex-pdf-process '("latexmk -shell-escape -xelatex %f"))
     (setq org-latex-with-hyperref-template nil) ;; stop org adding hypersetup{author..} to latex export
     ;; (setq org-latex-prefer-user-labels t)
 
     ;; deleted unwanted file extensions after latexMK
     (setq org-latex-logfiles-extensions
-          (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl" "xmpi" "run.xml" "bcf" "acn" "acr" "alg" "glg" "gls" "ist")))
+          (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi"
+                   "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl" "xmpi" "run.xml"
+                   "bcf" "acn" "acr" "alg" "glg" "gls" "ist" "xdv")))
 
     (unless (boundp 'org-latex-classes)
       (setq org-latex-classes nil))))
