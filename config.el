@@ -101,3 +101,7 @@
               ("C-e" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(use-package! gptel
+  :config
+  (setq gptel-backend (gptel-make-gh-copilot "Copilot")))
