@@ -14,7 +14,7 @@
   (setq lsp-ui-sideline-show-code-actions nil)
 )
 
-;; Cache passwords for 2 min
+;; Cache passwords forever
 (setq password-cache-expiry nil)
 
 ; Adapted from https://www.reddit.com/r/emacs/comments/o49v2w/automatically_switch_emacs_theme_when_changing/?rdt=59586
