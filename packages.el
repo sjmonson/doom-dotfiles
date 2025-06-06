@@ -12,6 +12,3 @@
 ;; Inline code suggestions
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
-
-;; AI "anywhere"
-(package! gptel :recipe (:nonrecursive t))
