@@ -5,11 +5,6 @@
 ;; Stops evil-snipe from overiding keybinds
 ;(after! evil-snipe (evil-snipe-override-mode -1))
 
-;; Place your private configuration here
-;;(add-hook! 'sql-interactive-mode-hook
-;;           (lambda ()
-;;             (toggle-truncate-lines t)))
-
 (after! lsp
   (setq lsp-ui-sideline-show-code-actions nil)
 )
@@ -57,13 +52,6 @@
   (define-key evil-motion-state-map "k" 'evil-previous-line)
   (define-key evil-motion-state-map "l" 'evil-backward-char)
   (define-key evil-motion-state-map ";" 'evil-forward-char))
-
-;;(after! sql
-;;  (setq sql-mysql-login-params
-;;      '((user :default "km_monsonsamuel")
-;;        (database :default "km_monsonsamuel")
-;;        (server :default "cs100.seattleu.edu")
-;;        (password :default ""))))
 
 (after! org
   (use-package! ox-extra
