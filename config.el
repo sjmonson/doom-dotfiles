@@ -104,4 +104,14 @@
 
 (use-package! gptel
   :config
-  (setq gptel-backend (gptel-make-gh-copilot "Copilot")))
+  (setq gptel-backend (gptel-make-gh-copilot "Copilot"))
+  (map! :leader
+        :prefix-map ("e" . "GPTel")
+        :desc "GPTel menu" "SPC" #'gptel-menu
+        :desc "GPTel" "b" #'gptel
+        :desc "GPTel rewrite" "r" #'gptel-rewrite
+        :desc "GPTel send" "s" #'gptel-send
+        :desc "GPTel abort" "a" #'gptel-abort
+        :desc "GPTel toggle mode" "m" #'gptel-mode
+        :desc "Next response" "n" #'gptel-next
+        :desc "Previous response" "p" #'gptel-previous))
