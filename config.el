@@ -15,7 +15,6 @@
 ; Adapted from https://www.reddit.com/r/emacs/comments/o49v2w/automatically_switch_emacs_theme_when_changing/?rdt=59586
 (defun mf/set-theme-from-dbus-value (value)
   "Set the appropiate theme according to the color-scheme setting value."
-  (message "value is %s" value)
     (if (equal value '1)
         (progn (message "Switch to dark theme")
                (load-theme 'doom-one))
