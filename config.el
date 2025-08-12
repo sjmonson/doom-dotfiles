@@ -89,4 +89,5 @@
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
 (after! gptel
-  (setq gptel-backend (gptel-make-gh-copilot "Copilot")))
+  (setq gptel-backend (gptel-make-gh-copilot "Copilot")
+        gptel-model "gpt-5"))
