@@ -5,9 +5,11 @@
 ;; Stops evil-snipe from overiding keybinds
 ;; (after! evil-snipe (evil-snipe-override-mode -1))
 
-(after! lsp-ui
-  (setq lsp-ui-sideline-show-code-actions nil)
-  )
+(after! eglot
+  (add-to-list 'eglot-server-programs
+               ;; Use rass for python files
+               '((python-mode python-ts-mode python-base-mode)
+                 . ("rass" "python"))))
 
 ;; Cache passwords forever
 (setq password-cache-expiry nil)
