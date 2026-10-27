@@ -84,7 +84,6 @@
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("C-e" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
